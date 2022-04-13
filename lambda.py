@@ -16,7 +16,8 @@ for x in range(howmany):
 class WebServerHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(303)
-        self.send_header('Content-type', 'text/html')
+        self.send_header('cache-control', 'no-cache')
+        self.send_header('Content-type', 'text/plain; charset=utf-8')
         referer = self.headers['Referer']
         if self.path.endswith('next'):
             self.send_header(
