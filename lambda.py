@@ -25,7 +25,7 @@ class WebServerHandler(BaseHTTPRequestHandler):
         if self.path.endswith('prev'):
             self.send_header(
                 'Location', m_prevmap[referer] if referer in m_nextmap else random.choice(members)['url'])
-        if self.path.endswith('rand'):
+        if self.path.endswith('random'):
             self.send_header('Location', random.choice(members)['url'])
         self.end_headers()
 
